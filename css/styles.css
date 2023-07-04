@@ -59,6 +59,15 @@ span {
   cursor: pointer;
 }
 
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8f8f8f;
+  border-radius: 20px;
+  border: 3px solid white;
+}
 /* ------------------------------------------------------------------ */
 
 :root {
@@ -147,14 +156,15 @@ body.dark {
 
 article {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 75vh;
+  padding: 7% 0 5% 0;
+  overflow-y: auto;
 }
 
 #addList {
-  background: rgba(235, 189, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(115, 115, 115, 0.37);
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
   border-radius: 10px;
@@ -165,6 +175,7 @@ article {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   border-radius: 9999px;
   padding: 8px;
+  margin-bottom: 2rem;
 }
 
 #inputAdd input,
@@ -175,26 +186,48 @@ article {
 #inputAdd button {
   color: var(--green);
   font-weight: 300;
+  padding: 0 0.3rem 0 0;
 }
 
 
-#removeList {
+.iten-list li {
   display: flex;
-  background-color: #17a2b8;
-  margin-top: 2rem;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background-color: var(--light);
+  margin-top: 0.2rem;
   border-radius: 9999px;
   padding: 8px;
   justify-content: space-between;
-
+  border: 2px solid rgba(128, 128, 128, 0.3);
 }
 
-#removeList span {
+.iten-list span:first-child {
+  color: var(--green);
+  font-weight: 500;
+  padding: 0 0 0 0.3rem;
+}
+
+.iten-list span:last-child {
   color: var(--danger);
   font-weight: 800;
+  padding: 0 0.3rem 0 0;
+}
+
+.iten_ok {
+  background: var(--green) !important;
+  color: var(--light);
+  transition: all 0.2s ease-in-out;
+}
+
+.iten_ok span:first-child {
+  color: var(--light);
 }
 
 
+.line_through {
+  text-decoration: line-through;
+  font-weight: 400;
+  padding: 0 1rem 0 1rem;
+}
 
 
 
@@ -208,11 +241,12 @@ article {
 #theme {
   display: block;
   position: absolute;
-  top: 5%;
-  left: 45%;
+  top: 2%;
+  left: 1%;
   background: transparent;
 }
 
 .theme-transition {
   transition: all 0.5s ease-in-out;
 }
+
