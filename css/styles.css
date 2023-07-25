@@ -144,8 +144,16 @@ body {
   height: 100vh;
 }
 
+@media (max-width:320px) {
+  #theme {
+    top: 4%;
+    left: 6%;
+  }
+}
+
 body.light {
-  --dark_light: rgb(211, 223, 223);
+  --inverter_cor: #222222;
+  --dark_light: rgb(240, 240, 240);
   background-color: var(--dark_light);
   transition: all 0.5s ease-in-out;
 }
@@ -159,6 +167,7 @@ body.light h2 {
 }
 
 body.dark {
+  --inverter_cor:  rgb(240, 240, 240);
   --dark_light: #222222;
   background-color: var(--dark_light);
   transition: all 0.5s ease-in-out;
@@ -195,11 +204,14 @@ article {
   padding: 8px;
   margin-bottom: 2rem;
   border: 2px solid rgba(128, 128, 128, 0.3);
+  display: flex;
 }
 
 #inputAdd input,
 #inputAdd button {
   background: transparent;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 #inputAdd button {
@@ -231,13 +243,13 @@ article {
 }
 
 .iten_ok {
-  background: var(--green) !important;
-  color: var(--light);
+  background: #06ac2da9 !important;
+  color: var(--white);
   transition: all 0.2s ease-in-out;
 }
 
 .iten_ok span:first-child {
-  color: var(--light);
+  color: var(--dark_lightt);
 }
 
 
@@ -247,24 +259,21 @@ article {
   padding: 0 1rem 0 1rem;
 }
 
-
-
-
-
-
-
-
-
-
 #theme {
   display: block;
   position: absolute;
   top: 2%;
   left: 1%;
   background: transparent;
+  padding: 5px 5px 6px 5px;
+  background: var(--inverter_cor);
+  border-radius: 5px;
+  z-index: 99999;
 }
 
 .theme-transition {
   transition: all 0.5s ease-in-out;
 }
+
+
 
