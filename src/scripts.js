@@ -23,22 +23,27 @@ $('#theme').click(function () {
 
 
 $(document).ready(function () {
+
   $('#add').click(function () {
-    var inputText = $('#text_iten_list').val();
+    let inputText = $('#text_iten_list').val();
 
     if (inputText !== '') {
-      let newListItem = '<div class="iten-list"><ul><li><span id="ok">✓</span><p>' + inputText + '</p><span id="remove">-</span></li></ul></div>';
+      let newListItem = '<div class="iten-list" style="display: none;"><ul><li><span id="ok">✓</span><p>' + inputText + '</p><span id="remove">-</span></li></ul></div>';
       $('#list').append(newListItem);
       $('#text_iten_list').val('');
+      $('.iten-list:last-child').fadeIn(500);
     }
   });
 
   $('#list').on('click', '#remove', function () {
-    $(this).closest('.iten-list').remove();
+    $(this).closest('.iten-list').fadeOut(200, function () {
+      $(this).remove();
+    });
   });
-
+  
   $('#list').on('click', '#ok', function () {
     $(this).closest('li').toggleClass('iten_ok');
-    $(this).closest('li').find('p').toggleClass('line_through');
   });
 });
+
+

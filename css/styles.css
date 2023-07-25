@@ -46,7 +46,6 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
   text-align: left;
 }
 
@@ -71,6 +70,7 @@ span {
 /* ------------------------------------------------------------------ */
 
 :root {
+  --dark_light: #fff;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -90,7 +90,7 @@ span {
   --info: #17a2b8;
   --warning: #ffc107;
   --danger: #dc3545;
-  --light: #f8f9fa;
+  --light: #8f8f8f;
   --dark: #343a40;
 }
 
@@ -104,7 +104,7 @@ h6 {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
-  color: inherit
+  text-align: center
 }
 
 h1 {
@@ -145,13 +145,31 @@ body {
 }
 
 body.light {
-  background-color: var(--light);
+  --dark_light: rgb(211, 223, 223);
+  background-color: var(--dark_light);
   transition: all 0.5s ease-in-out;
 }
 
+body.light input::placeholder {
+  color:var(--light)
+}
+
+body.light h2 {
+  color:var(--dark)
+}
+
 body.dark {
-  background-color: var(--dark);
+  --dark_light: #222222;
+  background-color: var(--dark_light);
   transition: all 0.5s ease-in-out;
+}
+
+body.dark input::placeholder{
+  color:var(--secondary)
+}
+
+body.dark h2 {
+  color:var(--white)
 }
 
 article {
@@ -163,7 +181,7 @@ article {
 }
 
 #addList {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--dark_light);
   box-shadow: 0 8px 32px 0 rgba(115, 115, 115, 0.37);
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
@@ -172,10 +190,11 @@ article {
 }
 
 #inputAdd {
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  border-radius: 9999px;
+  background: var(--dark_light);
+  border-radius: 5px;
   padding: 8px;
   margin-bottom: 2rem;
+  border: 2px solid rgba(128, 128, 128, 0.3);
 }
 
 #inputAdd input,
@@ -189,12 +208,11 @@ article {
   padding: 0 0.3rem 0 0;
 }
 
-
 .iten-list li {
   display: flex;
-  background-color: var(--light);
+  background-color: var(--dark_light);
   margin-top: 0.2rem;
-  border-radius: 9999px;
+  border-radius: 5px;
   padding: 8px;
   justify-content: space-between;
   border: 2px solid rgba(128, 128, 128, 0.3);
